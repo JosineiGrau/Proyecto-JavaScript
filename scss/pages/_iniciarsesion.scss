@@ -1,0 +1,122 @@
+@use "../abstracts/variables" as *;
+@use "../components/mixin-flex" as *;
+
+.iniciar-sesion{
+    height: 100vh;
+    @include flex(flex,row,nowrap,center,center);
+    .modal-iniciar-sesion{
+        box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.1),
+                    -15px 15px 20px rgba($color: #000000, $alpha: 0.3);
+        width: 100%;
+        height: 100%;
+        padding:80px;
+        border-radius: 5px;
+        h1{
+            font-family: $font-textos;
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 60px
+        }
+        .email-password{
+            @include flex(flex,column,nowrap,initial,initial);
+            gap: 30px;
+            .email{
+                position: relative;
+                input{
+                    width: 100%;
+                    background-color: transparent;
+                    padding: 16px 11px;
+                    font-size: 15px;
+                    font-family: $font-textos; 
+                    border: 1px solid black;
+                    outline: none;
+                }
+                label{
+                    position: absolute;
+                    left: 0;
+                    padding: 16px 11px;
+                    pointer-events: none;
+                    font-size: 15px;
+                    font-family: $font-textos;
+                    transition: 0.5s ease all
+                }
+                input:valid ~ label,
+                input:focus ~ label
+                {
+                    color:rgb(0, 0, 0);
+                    transform: translateX(9px) translateY(-9px);
+                    font-size: 13px;
+                    background-color: white;
+                    padding: 0 3px;
+                    border-left: 1px solid black;
+                    border-right: 1px solid black;
+                    letter-spacing: 0.7px;
+                }
+            }
+            
+            .password{
+                margin-bottom: 10px;
+                position: relative;
+                input{
+                    width: 100%;
+                    background-color: transparent;
+                    padding: 16px 11px;
+                    font-size: 15px;
+                    font-family: $font-textos; 
+                    border: 1px solid black;
+                    outline: none;
+                }
+                label{
+                    position: absolute;
+                    left: 0;
+                    padding: 16px 11px;
+                    pointer-events: none;
+                    font-size: 15px;
+                    font-family: $font-textos;
+                    transition: 0.5s ease all
+                }
+                input:valid ~ label,
+                input:focus ~ label
+                {
+                    color:rgb(0, 0, 0);
+                    transform: translateX(9px) translateY(-9px);
+                    font-size: 13px;
+                    background-color: white;
+                    padding: 0 3px;
+                    border-left: 1px solid black;
+                    border-right: 1px solid black;
+                    letter-spacing: 0.7px;
+                }
+            }
+        }
+    
+        .checkbox{
+            label{
+                font-family: $font-textos;
+                font-size: 13px;
+            }
+            a{
+                text-transform: uppercase;
+                color: black;
+                text-decoration:underline ;
+            }
+        }
+
+        .btn-iniciar-sesion{
+            @include flex(flex,row,nowrap,initial,center);
+            padding: 10px 5px;
+            background-color: black;
+            border: 1px solid black;
+            color: white;
+            margin-top: 20px;
+            font-size: 18px;
+            font-family: $font-textos;
+            cursor: pointer;
+            i{
+                margin-left: 20px;
+                font-size: 20px;
+            }
+        }
+
+    }
+}

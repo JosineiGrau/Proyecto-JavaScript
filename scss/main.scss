@@ -1,0 +1,16 @@
+//Reset
+@forward "./base/reset";
+
+//Layout
+@forward "./layout/header";
+
+//Pages
+@forward "./pages/index";
+@forward "./pages/iniciarsesion";
+@forward "./pages/registrarse";
+@forward "./pages/finalizarcomprar";
+@forward "./pages/comprarealizada";
+//layout
+@forward "./layout/footer";
+//Responsive
+// @forward "./responsive/960px";

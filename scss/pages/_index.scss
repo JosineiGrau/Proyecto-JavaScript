@@ -1,0 +1,418 @@
+@use "../abstracts/variables" as *;
+@use "../components/mixin-flex" as *;
+@use "../abstracts/alerta" as *;
+@use "../abstracts/preloader";
+.nuestro-productos{
+    padding: 162px 0;
+    background-color: $bg-principal;
+    .container{
+        max-width: 1800px;
+        top: 0;
+        left: 0;
+        margin: auto;
+    }
+    .tecnologia{
+        .texto-y-filtros{
+            @include flex(flex,row,wrap,space-between,center);
+            max-width: 1440px;
+            margin: auto;
+            margin-bottom: 50px;
+            h1{
+                font-size: 30px;
+                font-family:poppins ;
+                margin-bottom: 25px;
+                }
+                .filtro{
+                    @include flex(flex,row,wrap,space-between,center);
+                    gap: 30px;
+                    .filtrar{
+                        button{
+                            background-color: transparent;
+                            border: none;
+                            cursor: pointer;
+                            @include flex(flex,row,wrap,center,center);
+                            i{
+                                font-size: 25px;
+                                margin-right: 10px;
+                            }
+                            
+                            span{
+                                font-size: 15px;
+                                font-family: $font-textos;
+                            }
+                        }   
+                        .blur-nav{
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100vh;
+                            background: rgba($color: #000000, $alpha: 0.5);
+                            z-index: 2;
+                            display: none;
+                        }
+                        .filtros{
+                            position: fixed;
+                            width: 300px;
+                            height: 100vh;
+                            top: 0;
+                            left: 0;
+                            padding: 20px 10px;
+                            box-shadow: 0 0 15px rgba($color: #484848, $alpha: 0.2);
+                            transition: 0.7s ease all;
+                            transform: translateX(-500px);
+                            z-index: 4;
+                            background-color: #ffffff;
+                            &.mostrar{
+                                transform: translateX(0px);
+                                z-index: 4;
+                            }
+                            .close{
+                                position: absolute;
+                                right: 0;
+                                background-color: transparent;
+                                border: none;
+                                padding: 5px;
+                                cursor: pointer;
+                                color: rgb(0, 0, 0);
+                                i{
+                                    font-size: 20px;
+                                    transition: 0.3s ease all;
+                                }
+                            }
+                            p{
+                                font-family: $font-textos;
+                                font-size: 18px;
+                                color: black;
+                                border-bottom: 1px solid black;
+                                margin-bottom: 15px;
+                                margin-top: 30px;
+                            }
+                            .f-p{
+                                border-bottom: 1px solid black;
+                                button{
+                                    @include flex(flex,row,wrap,space-between,initial);
+                                    width: 100%;
+                                    background-color: transparent;
+                                    border: none;
+                                    text-align: initial;
+                                    font-size: 15px;
+                                    font-family: $font-textos;
+                                    padding: 10px 0;
+                                    cursor: pointer;
+                                    &:hover{
+                                        background-color: #000000;
+                                        color: white;
+                                    }
+                                    i{
+                                        margin-left: 5px;
+                                        transform: rotate(0deg);
+                                        transition: 0.3s ease all;
+                                        &.rotar-up{
+                                            transform: rotate(180deg)
+                                        }
+                                    }
+                                }
+                                .colores{
+                                    height: 0vh;
+                                    overflow: hidden;
+                                    transition: 0.7s ease all;
+                                    .color{
+                                        label{
+                                            font-family: $font-textos;
+                                            font-size: 14px
+                                        }
+                                    }
+                                    &.active{
+                                        height: 15vh;
+                                        margin: 10px 0;
+                                    }
+                                }
+                                .products{
+                                    height: 0vh;
+                                    overflow: hidden;
+                                    transition: 0.7s ease all;
+                                    .product{
+                                        label{
+                                            font-family: $font-textos;
+                                            font-size: 14px
+                                        }
+                                    }
+                                    &.active{
+                                        height: 15vh;
+                                        margin: 10px 0;
+                                        overflow: scroll;
+                                        overflow-x: hidden;
+                                        &::-webkit-scrollbar{
+                                            width: 10px;
+                                        }
+                                        &::-webkit-scrollbar-thumb{
+                                            background-color: #c4c4c4;
+                                            border-radius: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .ordenar{
+                        position: relative;
+                        .ordenar-por{
+                            button{
+                                background-color: transparent;
+                                border: none;
+                                font-family: $font-textos;
+                                font-size: 15px;
+                                cursor: pointer;
+                                i{
+                                    font-size: 15px;
+                                    transform: rotate(0deg);
+                                    transition: 0.3s ease all;
+                                    &.rotar{
+                                        transform: rotate(180deg);
+                                    }
+        
+                                }
+                            }
+        
+                        }
+                        .orden-lista{
+                            background-color: rgb(255, 255, 255);
+                            box-shadow: 0px 0px 15px rgba($color: #484848, $alpha: 0.2);
+                            @include flex(flex,column,wrap,initial,flex-start);
+                            position: absolute;
+                            z-index: 1;
+                            right: 0;
+                            display: none;
+                            &.mostrar{
+                                display: flex;
+                            }
+                            button{
+                                background-color: transparent;
+                                border: none;
+                                font-family: $font-textos;
+                                font-size: 15px;
+                                padding: 5px 10px;
+                                margin: 5px 0;
+                                cursor: pointer;
+                                width: 100%;
+                                text-align: initial;
+                                transition: 0.3s ease all;
+                                &:hover{
+                                    background-color: #000000;
+                                    color:white;
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+        .productos-filtros{
+            @include flex(flex,row,nowrap,center,center);
+            .productos{
+                @include flex(flex,row,wrap,center,center);
+                gap: 30px;
+                .producto{
+                    position: relative;
+                    @include flex(flex,column-reverse,nowrap,space-between,center);
+                    width: 400px;
+                    height: 550px;
+                    padding: 15px 15px;
+                    background-color: $bg-principal;
+                    transition: 0.3s ease all;
+                    &:hover{
+                        border: 1px solid black;
+                        transform: translateY(-10px);
+                        box-shadow: 0px 0px 20px rgba($color: #000000, $alpha: 0.25)
+                    }
+                    .producto-card{
+                        @include flex(flex,column,nowrap,center,center);
+                        .producto-precio{
+                            @include flex(flex,column,nowrap,center,center);
+                            a{
+                                text-decoration: none;
+                                color: black;
+                                font-family: $font-textos;
+                                font-size: 18px;
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                            }
+                            p{
+                                color: black;
+                                font-family: $font-textos;
+                                font-size: 15px;
+                            }
+                        }
+                        button{
+                            background-color: rgb(0, 0, 0);
+                            border: none;
+                            padding: 8px 8px;
+                            cursor: pointer;
+                            margin-top: 30px;
+                            color: white;
+                            @include flex(flex,row,nowrap,center,center);
+                            transition: 0.3s ease all;
+                            i{
+                                display: none;
+                                transition: 0.3s ease all;
+                            }
+                            &:hover{
+                                i{
+                                    display: block;
+                                }
+                            }
+                            p{
+                                font-size: 15px;
+                                font-family: poppins;
+                            }
+                            
+                        }
+                       
+                    }
+                    .favorito{
+                        position: absolute;
+                        background-color: transparent;
+                        border: none;
+                        top: 4px;
+                        right: 4px;
+                        cursor: pointer;
+                        color: black;
+                        font-size: 25px;
+                        transition: 0.3s ease all;
+                        &:active{
+                            color: red;
+                        }
+                    }
+                    img{
+                        width: 100%;
+                        aspect-ratio: 1/1;
+                        object-fit:cover;
+                    }
+                }
+                // .macbook img{
+                //     width: 100%;
+                //     overflow: hidden;
+                // }
+                // .ipad img{
+                //     width: 100%;
+                //     overflow: hidden;
+                // }
+                // .iphone img{
+                //     width: 100%;
+                //     height: 350px;
+                // } 
+            }
+        }
+        
+    }
+}
+
+
+.newlaster{
+    @include flex(flex,column,nowrap,center,center);
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    padding: 100px 0;
+    .newlaster-content{
+        position: relative;
+        @include flex(flex,column,nowrap,center,center);
+        background-color: white;
+        padding: 40px 100px;
+        &::before{
+            content: "";
+            position: absolute;
+            border-bottom: 1px solid white;
+            border-left: 1px solid white;
+            bottom: -4px;
+            height: 3px;
+            left: 3px;
+            width: 100%;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+            height: 100%;
+            right: -4px;
+            top: 3px;
+            width: 3px;
+        }
+        
+        h2{
+            font-size: 30px;
+            font-family: $font-textos;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .newlaster-email{
+            position: relative;
+            input{
+                width: 100%;
+                background-color: transparent;
+                padding: 16px 11px;
+                font-size: 15px;
+                font-family: $font-textos; 
+                border: 1px solid black;
+                outline: none;
+            }
+            label{
+                position: absolute;
+                left: 0;
+                padding: 16px 11px;
+                pointer-events: none;
+                font-size: 15px;
+                font-family: $font-textos;
+                transition: 0.5s ease all
+            }
+            input:valid ~ label,
+            input:focus ~ label
+            {
+                color:rgb(0, 0, 0);
+                transform: translateX(9px) translateY(-9px);
+                font-size: 13px;
+                background-color: white;
+                padding: 0 3px;
+                border-left: 1px solid white;
+                border-right: 1px solid white;
+                letter-spacing: 0.7px;
+            }
+        }
+
+        .enviar-newlaster{
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: black;
+            border: none;
+            font-family: $font-textos;
+            font-size: 18px;
+            cursor: pointer;
+            outline: none;
+            color: white;
+        }
+    }
+}
+.close-swal{
+    color: black;
+    transition: .3s ease all;
+    &:hover{
+        color: #c4c4c4;
+    }
+}
+.span-swal{
+    font-family: $font-textos;
+    color: black;
+    font-size: 30px;
+}
+.p-swal{
+    font-family: $font-textos;
+    color: black;
+    font-size: 18px;
+}
+.btn-confirm-swal{
+    font-family: $font-textos;
+    color: white;
+    font-size: 15px;
+}

@@ -1,0 +1,44 @@
+@use "../abstracts/variables" as *;
+@use "../components/mixin-flex" as *;
+@use "../components/@keyframes" as *;
+
+.alerta{
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    height: 6rem;
+    width: 25rem;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    border-left: 1rem solid rgba($color: #ffffff, $alpha: 0.5);
+    @include flex(flex,row,nowrap,initial,center);
+    padding: 20px;
+    &.animacion{
+        animation: alerta 0.3s linear;
+        opacity: 1;
+    }
+    &.ocultar-animacion{
+        animation: ocultarAlerta 0.3s linear;
+        opacity: 1;
+    }
+    .alerta-content{
+        @include flex(flex,row,nowrap,initial,center);
+        gap: 20px;
+        .icon{
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+        }
+        .mensaje{
+            color: white;
+            font-size: 18px;
+            font-family: $font-textos;
+        }
+    }
+    .cerrar{
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}

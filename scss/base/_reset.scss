@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as *;
+@use "../components/mixin-flex" as *;
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    &::-webkit-scrollbar{
+        width: 15px;
+        background-color: white;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #c4c4c4;
+        border-radius: 5px;
+    }
+    overflow-x: hidden;
+}

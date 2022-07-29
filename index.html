@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/0434ec07d5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <script defer src="js/variables.js"></script>
+    <script defer src="js/htmltemplates.js"></script>
+    <script defer src="js/functions.js"></script>
+    <!-- <script defer src="js/fetch.js"></script> --><!--esto no importa estaba probando otra manera de obtener los datos.-->
+    <script defer src="js/carrito.js"></script>
+    <script defer src="js/header.js"></script>
+    <script defer src="js/app.js"></script>
+    <script defer src="js/events.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<body>
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="carga"></div>
+        </div>
+    </div>
+    <header>
+        <div class="header-top">
+            <div class="top-info">
+                <div class="info">
+                    <a title="ayuda" href="#"><p>Ayuda</p></a><span>|</span>
+                    <a title="iniciar sesion" href="pages/iniciarsesion.html"><p>Iniciar Sesión</p></a><span>|</span>
+                    <a title="registrarse" href="pages/registrarse.html"><p>Registrarse</p></a>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="nav-bar">
+                <h1>MiTienda</h1>
+                <div class="nav">
+                    <div class="blur-nav"></div>
+                    <nav>
+                        <button class="close" id="close-nav"><i class="fa-solid fa-x"></i></button>
+                        <ul>
+                            <li>
+                                <a title="hombre" href="#">Hombre <i class="fa-solid fa-angle-right"></i></a>
+                                <div class="hombre">
+                                    <div class="lista-hombre">
+                                        <div class="ul">
+                                            <div class="li li-1">
+                                                <span>Nuevos Productos</span>
+                                                <a href="undefined">accesorios</a>
+                                                <a href="undefined">novedades</a>
+                                                <a href="undefined">zapatos</a>
+                                            </div>                                         
+                                            <div class="li li-2">
+                                                <span>Comprar por producto</span>
+                                                <a href="undefined">Ver todo</a>
+                                                <a href="undefined">Básicos</a>
+                                                <a href="undefined">Polos</a>
+                                                <a href="undefined">Poloras</a>
+                                                <a href="undefined">Camisas</a>
+                                                <a href="undefined">Accesorios</a>
+                                                <a href="undefined">Pantalones</a>
+                                            </div>
+                                            <div class="li li-3">
+                                                <span>Comprar por concepto</span>
+                                                <a href="undefined">Ropa formal</a>
+                                                <a href="undefined">Básicos</a>
+                                                <a href="undefined">Musica,películas y logotipos</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a title="mujer" href="#">Mujer <i class="fa-solid fa-angle-right"></i></a></li>
+                            <li><a title="niños" href="#">Niños <i class="fa-solid fa-angle-right"></i></a></li>
+                            <li><a title="ofertas" href="#">Ofertas <i class="fa-solid fa-angle-right"></i></a></li>
+                            <li><a title="tecnología" href="#">Tecnología <i class="fa-solid fa-angle-right"></i></a></li>
+                        </ul>
+                        <div class="preguntas">
+                            <a title="ayuda" href="#">Ayuda <i class="fa-solid fa-circle-question"></i></a>
+                        </div>    
+                        <div class="iniciar-sesion">
+                            <a title="registrarse" href="#" class="register">Registrarse</a>
+                            <a title="iniciar sesion" href="" class="sing-up">Iniciar Sesión</a>
+                        </div>
+                    </nav>
+                    <div class="nav-carrito" id="carrito">
+                        <div class="row-1">
+                            <button class="close-car"><i class="fa-solid fa-x"></i></button>
+                            <span class="textCarrito">CARRITO</span>
+                        </div>
+                        <div class="row-2">
+                            <div class="producto-carrito" id="producto-carrito">
+                                <i class="fa fa-cart-shopping"></i>
+                                <p>El carrito esta vació</p>
+                            </div>
+                        </div>
+                        <div class="lista-y-comprar">
+                            <div class="lista-carrito" id="lista-carrito">
+                                <div class="productos-en-carrito" id="productos-en-carrito">
+                                    
+                                </div>
+                            </div>
+                            <div class="comprar-ahora" id="comprar-ahora">
+                                <div class="precioTotal">
+                                    <p>Precio Total: S/.<span id="PrecioTotal">0</span></p>  
+                                </div>
+                                <p>Simula el costo de envío en el siguiente paso.</p>
+                                <div class="comprar">
+                                    <a title="comprar ahora" href="/pages/finalizarcomprar.html" id="btn-comprar-ahora">COMPRAR AHORA</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="car-heart">
+                    <div class="search">
+                        <input type="text" placeholder="Buscar">
+                        <div class="btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <button class="heart">    
+                        <i class="fa fa-heart"></i>
+                        <span id="contadorFavoritos">+</span>
+                    </button>
+                    <button title="carrito de compras" class="car">
+                        <i class="fa fa-cart-shopping"></i>
+                        <span id="contadorCarrito">+</span>
+                    </button>
+                    <button class="menu-hamburguesa">
+                        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M26.25 22.5H11.25V20H26.25V22.5ZM26.25 16.25H3.75V13.75H26.25V16.25ZM26.25 10H11.25V7.5H26.25V10Z" fill="black"/>
+                        </svg>   
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div id="nuestro-productos" class="nuestro-productos">
+                <div class="container tecnologia">  
+                    <div class="texto-y-filtros">
+                        <h1>Tecnología</h1>
+                        <div class="filtro">
+                            <div class="filtrar">
+                                <button id="filtrar">
+                                    <i class="fa-solid fa-filter"></i>
+                                    <span>Filtros</span>
+                                </button>
+                                <div class="blur-nav"></div>
+                                <div class="filtros" id="filtros">
+                                    <button class="close" id="close-filtro"><i class="fa-solid fa-x"></i></button>
+                                    <p>FILTRADO POR:</p>
+                                    <div class="f-p filtro-colores">
+                                        <button id="filtro-colores">Colores<i class="fa-solid fa-chevron-down down-colores"></i></button>
+                                        <div class="colores" id="colores">
+                                            <div class="rojo color">
+                                                <input type="checkbox" value="rojo" id="rojo">
+                                                <label for="rojo">rojo</label>
+                                            </div>
+                                            <div class="verde color">
+                                                <input type="checkbox" value="verde" id="verde">
+                                                <label for="verde">verde</label>
+                                            </div>
+                                            <div class="azul color">
+                                                <input type="checkbox" value="azul" id="azul">
+                                                <label for="azul">azul</label>
+                                            </div>
+                                            <div class="morado color">
+                                                <input type="checkbox" value="morado" id="morado">
+                                                <label for="morado">morado</label>
+                                            </div>
+                                            <div class="negro color">
+                                                <input type="checkbox" value="negro" id="negro">
+                                                <label for="negro">negro</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="f-p filtro-producto">
+                                        <button id="filtro-producto">Producto<i class="fa-solid fa-chevron-down down-producto"></i></button>
+                                        <div class="products" id="products">
+                                            <div class="iphone-12 product">
+                                                <input type="checkbox" value="iphone-12" id="iphone-12">
+                                                <label for="iphone-12">iphone 12</label>
+                                            </div>
+                                            <div class="iphone-12-pro product">
+                                                <input type="checkbox" value="iphone-12-pro" id="iphone-12-pro">
+                                                <label for="iphone-12-pro">iphone 12 Pro</label>
+                                            </div>
+                                            <div class="iphone-12-pro-Max product">
+                                                <input type="checkbox" value="iphone-12-pro-Max" id="iphone-12-pro-Max">
+                                                <label for="iphone-12-pro-Max">iphone 12 Pro Max</label>
+                                            </div>
+                                            <div class="iphone-13 product">
+                                                <input type="checkbox" value="iphone-13" id="iphone-13">
+                                                <label for="iphone-13">iphone 13</label>
+                                            </div>
+                                            <div class="iphone-13-Pro product">
+                                                <input type="checkbox" value="iphone-13-Pro" id="iphone-13-Pro">
+                                                <label for="iphone-13-Pro">iphone 13 Pro</label>
+                                            </div>
+                                            <div class="iphone-13-Pro-Max product">
+                                                <input type="checkbox" value="iphone-13-Pro-Max" id="iphone-13-Pro-Max">
+                                                <label for="iphone-13-Pro-Max">iphone 13 Pro Max</label>
+                                            </div>
+                                            <div class="ipad product">
+                                                <input type="checkbox" value="ipad" id="ipad">
+                                                <label for="ipad">ipad</label>
+                                            </div>
+                                            <div class="ipad-pro product">
+                                                <input type="checkbox" value="ipad-pro" id="ipad-pro">
+                                                <label for="ipad-pro">ipad Pro</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="f-p filtro-precio">
+                                        <button id="filtro-precio">Precio<i class="fa-solid fa-chevron-down down-precio"></i></button>
+                                    </div>       
+                                </div>
+                            </div>
+                            <div class="ordenar">
+                                <div class="ordenar-por">
+                                    <button id="ordenarPor">ORDENAR POR <i class="fa-solid fa-chevron-down down"></i></button>
+                                </div>
+                                <div class="orden-lista" id="orden-lista">
+                                    <button>Precios más bajo</button>
+                                    <button>Precios más altos</button>
+                                    <button>Descuento</button>
+                                    <button>Más reciente</button>
+                                    <button>Ventas</button>
+                                    <button>Relevancia</button>
+                                    <button>Nombre,creciente</button>
+                                    <button>Nombre,decreciente</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>         
+                    
+                    <div class="productos-filtros">
+                     
+                        <div class="productos" id="productos">
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </section>
+    </main>
+    <div class="alerta" id="alerta" >
+        <div class="alerta-content">
+            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+            <span class="mensaje">El producto se añadio al carrito.</span>
+        </div>
+        <div class="cerrar" id="cerrar">
+            <i class="fa-solid fa-x"></i>
+        </div>
+    </div>
+    <section class="newlaster">
+        <div class="newlaster-content">
+            <h2>Unete al Team</h2>
+            <div class="newlaster-email">
+                <input type="text" id="email-newlaster" name="email" value="" maxlength="50" required>
+                <label for="email-newlaster">Correo electronico</label>
+            </div>
+            <button type="submit" class="enviar-newlaster" id="enviar-newlaster">Enviar</button>
+        </div>
+    </section>
+    <footer>
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-resumen">
+                    <div class="footer-css footer-informacion">
+                        <span>INFORMACIÓN DE LA TIENDA</span>
+                        <div class="enlace">
+                            <a href="#"><p>Acerca de nuestra tienda</p></a>
+                        </div>
+                        
+                    </div>
+                    <div class="footer-css footer-productos">
+                        <span>PRODUCTOS</span>
+                        <div class="enlace">
+                            <a href="#"><p>Zapatillas</p></a>
+                            <a href="#"><p>Calzado</p></a>
+                            <a href="#"><p>Chimpunes</p></a>
+                            <a href="#"><p>Ropa</p></a>
+                        </div>
+                        
+                    </div>
+                    <div class="footer-css footer-deportes">
+                        <span>DEPORTES</span>
+                        <div class="enlace">
+                            <a href="#"><p>Fútbol</p></a>
+                            <a href="#"><p>Running</p></a>
+                            <a href="#"><p>Gym</p></a>
+                            <a href="#"><p>Skateboarding</p></a>
+                        </div>
+                    </div>
+                    <div class="footer-css footer-servicio-cliente">
+                        <span>SERVICIO AL CLIENTE</span>
+                        <div class="enlace">
+                            <a href="#"><p>Condiciones</p></a>
+                            <a href="#"><p>Sugerencias/Reclamos</p></a>
+                            <a href="#"><p>Guia de Tallas</p></a>
+                            <a href="#"><p>Cambios y Devoluciones</p></a>
+                        </div>
+                    </div>
+                    <div class="footer-css footer-contacto">
+                        <span>CONTACTANOS</span>
+                        <div class="enlace">
+                            <div class="ubicacion"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="telefono"><i class="fa-solid fa-phone"></i></div>
+                            <div class="correo"><i class="fa-solid fa-envelope"></i></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="redes-sociales">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="franja">
+            <div class="franja-content">
+                <p>&copy;Mi tienda 2022</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
