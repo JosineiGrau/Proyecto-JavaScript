@@ -28,7 +28,7 @@ body{
             a{
                 color: #000000;
                 font-size: 12px;
-                font-family:poppins ;
+                font-family:'Poppins', sans-serif ;
                 i{
                     margin-right: 4px;
                 }
@@ -36,7 +36,7 @@ body{
         }
         .logo{
             font-size: 30px;
-            font-family:poppins ;
+            font-family:'Poppins', sans-serif ;
             font-weight: 700;
             color:black;
         }
@@ -74,19 +74,19 @@ body{
                 display: none;
                 h2{
                     font-size: 30px;
-                    font-family: poppins;
+                    font-family: 'Poppins', sans-serif;
                     color: black;
                 }
                 .empty-cart-message{
                     margin-bottom: 25px;
                     p{
-                        font-family: poppins;
+                        font-family: 'Poppins', sans-serif;
                         font-size: 14px;
                     }
                 }
                 .empty-cart-links{
                     a{
-                        font-family: poppins;
+                        font-family: 'Poppins', sans-serif;
                         font-size: 13px;
                         color: white;
                         background-color: black;
@@ -112,7 +112,7 @@ body{
                             }
                             .product{
                                 width: calc(100% - 235px);
-                                font-family: poppins;
+                                font-family: 'Poppins', sans-serif;
                                 text-align: left;
                             }
                             .product::before{
@@ -121,12 +121,12 @@ body{
                             .product-price{
                                 order: 5;
                                 width: 90px;
-                                font-family: poppins;
+                                font-family: 'Poppins', sans-serif;
                             }
                             .quantity{
                                 order: 4;
                                 min-width: 60px;
-                                font-family: poppins;
+                                font-family: 'Poppins', sans-serif;
                             }
                         }
                     }
@@ -164,12 +164,12 @@ body{
                                 a{
                                     color: black;
                                     font-weight: bold;
-                                    font-family: poppins;
+                                    font-family: 'Poppins', sans-serif;
                                 }
                             }
                             .product-price{
                                 font-weight: bold;
-                                font-family: poppins;
+                                font-family: 'Poppins', sans-serif;
                                 order: 4;
                                 margin:  0 17px;
                             }
@@ -188,7 +188,7 @@ body{
                                 }
                                 input[type="number"]{
                                     color: black;
-                                    font-family: "Poppins", sans-serif;
+                                    font-family: "'Poppins', sans-serif", sans-serif;
                                     font-size: 15px;
                                     width: 30px;
                                     border: none;
@@ -237,7 +237,7 @@ body{
                             justify-content: space-between;
                             td{
                                 font-size: 15px;
-                                font-family: poppins;
+                                font-family: 'Poppins', sans-serif;
                             }
                         }
                     }
@@ -248,7 +248,7 @@ body{
                             justify-content: space-between;
                             td{
                                 font-size: 17px;
-                                font-family: poppins;
+                                font-family: 'Poppins', sans-serif;
                                 font-weight: bold;
                             }
                         }
@@ -259,7 +259,7 @@ body{
                 margin-top: 10px;
                 .tyc{
                     font-size: 12px;
-                    font-family: poppins;
+                    font-family: 'Poppins', sans-serif;
                     color: black;
                     margin-bottom: 20px;
                     a{
@@ -274,7 +274,7 @@ body{
                     text-align: center;
                     a{
                         width: 100%;
-                        font-family:poppins;
+                        font-family:'Poppins', sans-serif;
                         background-color: black;
                         color: white;
                         padding: 17px 19px;
