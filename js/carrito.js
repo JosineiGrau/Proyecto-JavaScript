@@ -128,3 +128,4 @@ const botonDescontarProductosCheckout = (id) => {
     let car = new CarritoCheckout
     car.descontarProductosCheckout(id)
 }
+
